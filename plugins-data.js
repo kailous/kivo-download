@@ -71,7 +71,8 @@ window.KIVO_PLUGINS_DATA = {
           "notes": "统一内容类型。"
         }
       ],
-      "bundled": true
+      "bundled": true,
+      "download": "https://github.com/kailous/kivo-download/releases/download/v0.5.0-beta.1/KivoPlugin-bilibili-1.2.1.zip"
     },
     {
       "id": "iqiyi",
@@ -124,7 +125,8 @@ window.KIVO_PLUGINS_DATA = {
           "notes": "完整剧集目录、高清封面与简介。"
         }
       ],
-      "bundled": true
+      "bundled": true,
+      "download": "https://github.com/kailous/kivo-download/releases/download/v0.5.0-beta.1/KivoPlugin-iqiyi-0.1.7.zip"
     },
     {
       "id": "iptv",
@@ -166,7 +168,8 @@ window.KIVO_PLUGINS_DATA = {
           "notes": "首个实验版本。"
         }
       ],
-      "bundled": true
+      "bundled": true,
+      "download": "https://github.com/kailous/kivo-download/releases/download/v0.5.0-beta.1/KivoPlugin-iptv-0.1.0.zip"
     },
     {
       "id": "sdk-template",

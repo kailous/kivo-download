@@ -1,6 +1,6 @@
 # Kivo 官网
 
-纯静态零依赖的 Kivo 产品官网（`index.html`、`plugins.html`、`sdk.html`），采用与 Kivo 原生界面同源的影院暗场与暖金焦点视觉语言，可直接部署到 Vercel、Cloudflare Pages 或 GitHub Pages。
+纯静态零依赖的 Kivo 产品官网（`index.html`、`plugins.html`、`sdk.html`）。macOS 安装包、SDK 和公开插件都可从 [GitHub Releases](https://github.com/kailous/kivo-download/releases) 获取。
 
 ## 本地预览
 
@@ -25,7 +25,7 @@ python3 website/scripts/sync.py
 在 `kailous/kivo` 的项目根目录提交 `website/` 的改动后，运行：
 
 ```sh
-git subtree push --prefix=website https://github.com/kailous/download.git main
+git subtree push --prefix=website https://github.com/kailous/kivo-download.git main
 ```
 
-Vercel 的 `kivo-download` 项目跟踪 `kailous/download` 的 `main` 分支。生产站点为 <https://kivo-download.vercel.app/>。
+Vercel 的 `kivo-download` 项目跟踪 `kailous/kivo-download` 的 `main` 分支。生产站点为 <https://kivo.rainforest.org.cn/>。

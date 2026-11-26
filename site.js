@@ -34,7 +34,7 @@
   }
 
   /* ========================================================================
-     2. 复制按钮 & 源码构建面板
+     2. 复制按钮
      ======================================================================== */
   document.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-copy]");
@@ -60,22 +60,6 @@
             }, 1600);
           }
         }).catch(() => {});
-      }
-      return;
-    }
-
-    const openBuild = e.target.closest("[data-open-build]");
-    if (openBuild) {
-      e.preventDefault();
-      const box = $("#build");
-      if (box) {
-        const isHidden = box.hasAttribute("hidden");
-        if (isHidden) {
-          box.removeAttribute("hidden");
-          box.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "nearest" });
-        } else {
-          box.setAttribute("hidden", "");
-        }
       }
     }
   });

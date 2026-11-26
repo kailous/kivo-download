@@ -514,7 +514,7 @@
           <details class="faq-item" name="faq" open><summary>Kivo 提供片源吗？</summary><p>不提供。Kivo 是你的个人影视库与播放器，内容来自你自己添加的链接和直播列表，能看哪些内容以你在对应平台的账号为准。</p></details>
           <details class="faq-item" name="faq"><summary>会员或付费内容能看吗？</summary><p>你的账号在原平台能看什么，在 Kivo 里就能看什么。Kivo 尊重各平台的版权与会员权益，暂不支持加密付费资源。</p></details>
           <details class="faq-item" name="faq"><summary>现在支持哪些平台？</summary><p>目前官方提供 Bilibili 番剧（支持单集与整季链接）、爱奇艺（实验版）以及 IPTV 直播列表（实验版）；更多平台也可以通过扩展陆续接入。</p></details>
-          <details class="faq-item" name="faq"><summary>我需要准备什么？</summary><p>一台 Apple 芯片 Mac，系统升级到 macOS 14 或更高版本即可。目前处于内测阶段，独立安装包正在准备中。</p></details>
+          <details class="faq-item" name="faq"><summary>我需要准备什么？</summary><p>一台运行 macOS 14 或更高版本的 Apple 芯片 Mac。测试版需要先用 Homebrew 安装 mpv。</p></details>
           <details class="faq-item" name="faq"><summary>必须用遥控器吗？</summary><p>不需要。键盘方向键、回车和 Esc 就能完成所有操作，鼠标也可以。想窝在沙发上遥控，搭配 RemoteFlow 等遥控工具就能直接连上实体遥控器。</p></details>
           <details class="faq-item" name="faq"><summary>换电脑时片单和进度怎么迁移？</summary><p>在「设置 → 本地数据」中一键导出备份，就能把片单、分类和观看进度完整带到新电脑；账号密码和登录状态不会被导出。</p></details>
         </div>
@@ -529,17 +529,10 @@
         <h2 id="download-title">今晚，换个方式追剧。</h2>
         <p>Apple 芯片 Mac · macOS 14+ · 当前版本 0.5.0</p>
         <div class="download-actions">
-          <a class="btn btn-gold btn-large" href="#build" data-open-build>从源码构建</a>
+          <a class="btn btn-gold btn-large" href="https://github.com/kailous/kivo-download/releases/download/v0.5.0-beta.1/Kivo-0.5.0-arm64-beta.dmg">下载 macOS 测试版</a>
           <a class="btn btn-glass btn-large" href="downloads/KivoPluginSDK-1.1.1.zip" download>下载插件 SDK</a>
         </div>
-        <small class="download-status">内测阶段 · 独立安装包即将上线</small>
-        <div class="build-box" id="build" hidden>
-          <pre><code><span class="c"># 依赖：Xcode 与 Homebrew</span>
-brew install mpv
-bash scripts/build-app.sh
-open build/Kivo.app</code></pre>
-          <button type="button" class="copy-btn" data-copy="brew install mpv&#10;bash scripts/build-app.sh&#10;open build/Kivo.app">复制</button>
-        </div>
+        <small class="download-status">测试版尚未通过 Apple 公证，安装前请运行 <code>brew install mpv</code>。</small>
       </div>
     </section>
   </main>

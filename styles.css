@@ -551,10 +551,6 @@ kbd { display: inline-grid; place-items: center; min-width: 24px; height: 24px; 
 .download > p { margin-top: 14px; color: var(--muted); font-size: 16px; }
 .download-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
 .download-status { margin-top: 18px; color: var(--muted-2); font-size: 13px; }
-.build-box { position: relative; width: min(100%, 520px); margin-top: 26px; padding: 18px 20px; border: 1px solid var(--line-2); border-radius: 16px; background: #080809; text-align: left; }
-.build-box pre { font-family: var(--mono); font-size: 13.5px; line-height: 1.8; color: #ece7dc; overflow-x: auto; }
-.build-box .c { color: var(--muted-2); }
-.build-box .copy-btn { position: absolute; top: 14px; right: 14px; }
 
 /* ---------- footer ---------- */
 .footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 40px 0 56px; border-top: 1px solid var(--line); margin-top: 80px; color: var(--muted-2); font-size: 13px; }
