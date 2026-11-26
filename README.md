@@ -19,3 +19,13 @@ python3 website/scripts/sync.py
 ```
 
 该脚本会重新生成 `website/plugins-data.js` 与 `website/sdk-docs-data.js`。
+
+## 发布官网
+
+在 `kailous/kivo` 的项目根目录提交 `website/` 的改动后，运行：
+
+```sh
+git subtree push --prefix=website https://github.com/kailous/download.git main
+```
+
+Vercel 的 `kivo-download` 项目跟踪 `kailous/download` 的 `main` 分支。生产站点为 <https://kivo-download.vercel.app/>。
