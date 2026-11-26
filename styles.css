@@ -553,7 +553,35 @@ kbd { display: inline-grid; place-items: center; min-width: 24px; height: 24px; 
 .download-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
 .download-status { margin-top: 18px; color: var(--muted-2); font-size: 13px; }
 
+/* ---------- partner banner ---------- */
+.partner-section { padding-bottom: 40px; }
+.partner-banner {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px clamp(12px, 2.8vw, 28px);
+  padding: 18px clamp(16px, 3.6vw, 38px);
+  border: 1px solid var(--line-2);
+  border-radius: 22px;
+  background: radial-gradient(ellipse at left center, rgba(61, 139, 255, 0.18), transparent 72%), #10141d;
+  color: var(--fg);
+  text-decoration: none;
+}
+.partner-banner img { grid-column: 1; grid-row: 1; width: 48px; height: 48px; object-fit: contain; }
+.partner-copy { display: grid; gap: 3px; font-size: 14px; color: var(--muted-2); }
+.partner-copy strong { color: var(--fg); font-size: clamp(20px, 2.5vw, 26px); line-height: 1.15; }
+.partner-link { color: #83b6ff; font-size: 14px; font-weight: 650; }
+.partner-banner:hover { border-color: #83b6ff; }
+.partner-banner:hover .partner-link { text-decoration: underline; text-underline-offset: 4px; }
+.partner-banner:focus-visible { outline: 2px solid #83b6ff; outline-offset: 4px; }
+@media (max-width: 600px) {
+  .partner-banner { grid-template-columns: 44px minmax(0, 1fr); }
+  .partner-banner img { width: 40px; height: 40px; }
+  .partner-link { grid-column: 2; justify-self: start; }
+}
+
 /* ---------- footer ---------- */
+main:has(> .partner-section) + .footer { margin-top: 0; }
 .footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 40px 0 56px; border-top: 1px solid var(--line); margin-top: 80px; color: var(--muted-2); font-size: 13px; }
 .footer .brand img { height: 22px; }
 .footer-links { display: flex; gap: 22px; }
