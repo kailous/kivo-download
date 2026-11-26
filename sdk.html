@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta name="description" content="Kivo Plugin SDK 1.1.1：进程内 C ABI + UTF-8 JSON 视频源插件开发包，包含完整契约文档、API v1 / v2 规范、内容分级与可编译模板。">
+  <title>Plugin SDK · Kivo</title>
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/app-icon.png">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="sdk.css">
+  <script src="sdk-docs-data.js" defer></script>
+  <script src="sdk.js" defer></script>
+</head>
+<body class="sub-page" id="top">
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="nav solid" data-header>
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Kivo 首页"><img src="assets/kivo-logo.svg" alt="Kivo" width="84" height="30"></a>
+      <nav aria-label="主导航">
+        <a href="index.html#demo">体验</a><a href="index.html#sources">聚合</a><a href="index.html#player">播放</a><a href="index.html#remote">遥控</a><a href="index.html#privacy">隐私</a><a href="index.html#faq">常见问题</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="nav-link" href="plugins.html">插件</a>
+        <a class="nav-link" href="sdk.html" aria-current="page">SDK</a>
+        <a class="btn btn-small btn-gold" href="index.html#download">获取 Kivo</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="sdk-main" id="main">
+    <section class="sdk-hero" aria-labelledby="sdk-title">
+      <div class="wrap">
+        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span><span>KivoPluginSDK v1.1.1 · API v1 / v2 · macOS 14+</span></p>
+        <h1 id="sdk-title">为 Kivo，<br><span class="nowrap">接入新的<em>视频源</em>。</span></h1>
+        <p class="sdk-sub">插件以进程内 C ABI + UTF-8 JSON 运行，只需输出目录、播放资源、账号与弹幕数据；影视库、遥控导航与 libmpv 播放由 Kivo 统一提供。</p>
+        <div class="sdk-cta">
+          <a class="btn btn-gold" href="downloads/KivoPluginSDK-1.1.1.zip" download>
+            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 3v8.5M5.5 8.5 9 12l3.5-3.5M3.5 14.5h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>下载 SDK 1.1.1</span>
+          </a>
+          <a class="btn btn-glass" href="#sdk-docs">阅读完整文档 ↓</a>
+        </div>
+
+        <dl class="sdk-facts">
+          <div><dt>当前版本</dt><dd>1.1.1</dd></div>
+          <div><dt>插件接口</dt><dd>C ABI + JSON</dd></div>
+          <div><dt>开发语言</dt><dd>Swift 6 / C</dd></div>
+          <div><dt>发行压缩包</dt><dd id="sdk-zip-size">ZIP · 44 KB</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="sdk-section wrap" aria-labelledby="quickstart-title">
+      <header class="sdk-section-head">
+        <p class="kicker">快速开始</p>
+        <h2 id="quickstart-title">四条命令，编译出你的第一个 .bundle。</h2>
+        <p>解压 SDK 后复制 <code>Template</code>，修改 <code>plugin.json</code> 与 Swift 源码即可打包并在 Kivo 设置中安装。</p>
+      </header>
+      <div class="sdk-quick-grid">
+        <article class="card sdk-card">
+          <div class="sdk-card-top">
+            <h3>复制模板并构建</h3>
+            <span class="tag tag-gold">API v1 · 推荐起点</span>
+          </div>
+          <p>模板已导出四个必需的 <code>public</code> C 符号，<code>build.sh</code> 会在签名后自动写入二进制 SHA-256 并校验 <code>contentRating</code>。</p>
+          <div class="sdk-cmd">
+            <pre><code>cp -R Template MyPlugin
+cd MyPlugin
+# 编辑 plugin.json 与 Sources/PluginSource/TemplateSource.swift
+bash build.sh</code></pre>
+            <button type="button" class="copy-btn" data-copy="cp -R Template MyPlugin&#10;cd MyPlugin&#10;bash build.sh">复制</button>
+          </div>
+        </article>
+
+        <article class="card sdk-card">
+          <div class="sdk-card-top">
+            <h3>四个 C 导出入口</h3>
+            <span class="tag">零宿主依赖</span>
+          </div>
+          <p>无需链接宿主模块。v2 内联 HLS 插件导出对应的 <code>_v2</code> 符号，其余所有权与回调规则完全一致。</p>
+          <div class="sdk-cmd">
+            <pre><code>void *videohub_plugin_create_v1(void);
+int32_t videohub_plugin_can_handle_v1(void *inst, const char *link);
+void *videohub_plugin_data_store_v1(void *inst);
+void videohub_plugin_request_v1(void *inst, const char *op,
+    const char *payload_json, void *ctx, videohub_plugin_reply reply);</code></pre>
+            <button type="button" class="copy-btn" data-copy="void *videohub_plugin_create_v1(void);&#10;int32_t videohub_plugin_can_handle_v1(void *inst, const char *link);&#10;void *videohub_plugin_data_store_v1(void *inst);&#10;void videohub_plugin_request_v1(void *inst, const char *op, const char *payload_json, void *ctx, videohub_plugin_reply reply);">复制</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="sdk-section wrap" id="sdk-files" aria-labelledby="files-title">
+      <header class="sdk-section-head">
+        <p class="kicker">包内容</p>
+        <h2 id="files-title">只包含开发所需的最小集合。</h2>
+        <p>不含宿主源码、播放器、WebView UI、mpv 或任何第三方平台实现。</p>
+      </header>
+      <ul class="sdk-file-grid" id="sdk-file-list"></ul>
+    </section>
+
+    <section class="sdk-docs-section wrap" id="sdk-docs" aria-labelledby="docs-title">
+      <header class="sdk-docs-bar">
+        <div>
+          <p class="kicker">完整文档</p>
+          <h2 id="docs-title">从仓库源码同步。</h2>
+        </div>
+        <div class="sdk-tabs" id="sdk-doc-tabs" role="tablist" aria-label="SDK 文档章节">
+          <button type="button" role="tab" data-doc-tab="sdk" aria-selected="true">SDK 1.1.1 总览</button>
+          <button type="button" role="tab" data-doc-tab="v1" aria-selected="false">API v1 规范</button>
+          <button type="button" role="tab" data-doc-tab="v2" aria-selected="false">API v2 内联 HLS</button>
+        </div>
+      </header>
+
+      <div class="sdk-docs-layout">
+        <aside class="sdk-toc" aria-label="本页目录">
+          <p class="sdk-toc-title">本页目录</p>
+          <nav id="sdk-toc-nav"></nav>
+          <div class="sdk-toc-source">
+            <span>同步源文件</span>
+            <code id="sdk-doc-source">SDK/KivoPluginSDK/README.md</code>
+          </div>
+        </aside>
+
+        <article class="card sdk-prose" id="sdk-doc-body">
+          <p class="sdk-loading">正在加载 SDK 文档…</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <a class="brand" href="index.html"><img src="assets/kivo-logo.svg" alt="Kivo" width="62" height="22" loading="lazy"></a>
+    <p>把客厅，装进你的 Mac。</p>
+    <nav class="footer-links" aria-label="页脚导航">
+      <a href="index.html">首页</a><a href="plugins.html">插件目录</a><a href="#top">回到顶部 ↑</a>
+    </nav>
+  </footer>
+</body>
+</html>

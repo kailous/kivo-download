@@ -1,0 +1,29 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="556" height="556" viewBox="0 0 556 556" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="app icon">
+<rect width="556" height="556" rx="190" fill="url(#paint0_radial_0_4)"/>
+<g id="Group 2">
+<path id="Polygon 2" d="M352.231 188.4C403.302 217.794 428.837 232.49 437.399 251.693C444.867 268.441 444.867 287.574 437.399 304.322C428.837 323.524 403.302 338.221 352.231 367.615L279.962 409.209C229.099 438.483 203.667 453.12 182.803 450.907C164.604 448.977 148.077 439.42 137.326 424.61C125 407.631 125 378.288 125 319.601L125 236.413C125 177.727 125 148.384 137.326 131.405C148.077 116.594 164.604 107.038 182.803 105.107C203.667 102.895 229.099 117.532 279.962 146.806L352.231 188.4Z" fill="url(#paint1_linear_0_4)"/>
+<path id="Intersect" d="M221.528 114.796C236.612 121.855 255.297 132.61 279.962 146.806L352.231 188.4C403.302 217.794 428.837 232.491 437.399 251.693C444.867 268.441 444.867 287.573 437.399 304.322C431.89 316.679 419.35 327.17 397.499 340.913L269.393 266.951C239.774 249.85 221.528 218.247 221.528 184.046V114.796Z" fill="#CB2D02"/>
+<path id="Subtract" d="M352.231 188.4C374.001 200.93 391.131 210.79 404.284 219.466L311.176 273.222C252.863 306.889 216.942 369.108 216.942 436.442C216.942 438.724 216.98 440.992 217.057 443.247C203.24 449.31 192.525 451.938 182.803 450.907C164.604 448.977 148.077 439.42 137.325 424.61C130.212 414.81 127.204 400.891 125.933 379.589C131.303 318.754 165.949 263.854 219.434 232.975L324.392 172.377L352.231 188.4Z" fill="url(#paint2_linear_0_4)"/>
+</g>
+<path id="Vector" d="M417.199 105.246C429.436 103.432 440.842 111.838 442.733 124.062C444.623 136.286 436.289 147.743 424.074 149.71C411.757 151.695 400.175 143.271 398.269 130.938C396.357 118.604 404.856 107.075 417.199 105.246Z" fill="#FEB128"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_0_4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-384 -456) rotate(56.8093) scale(1209.29)">
+<stop stop-color="#FEAB1B"/>
+<stop offset="0.672378" stop-color="#312624"/>
+<stop offset="1"/>
+</radialGradient>
+<linearGradient id="paint1_linear_0_4" x1="159.702" y1="125.636" x2="368.714" y2="332.654" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FEBE25"/>
+<stop offset="0.518604" stop-color="#FF9912"/>
+<stop offset="1" stop-color="#CB2D02"/>
+</linearGradient>
+<linearGradient id="paint2_linear_0_4" x1="370.399" y1="204.614" x2="264.639" y2="450.925" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FEEBA7"/>
+<stop offset="0.534287" stop-color="#FEAB1B"/>
+<stop offset="0.780013" stop-color="#DF5608"/>
+<stop offset="1" stop-color="#CB2D02"/>
+</linearGradient>
+</defs>
+</svg>

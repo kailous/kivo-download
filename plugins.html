@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta name="description" content="Kivo 视频源插件目录：浏览官方与社区开发的点播、直播插件，了解能力清单、安装方法与提交指南。">
+  <title>插件目录 · Kivo</title>
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/app-icon.png">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="plugins.css">
+  <script src="plugins-data.js" defer></script>
+  <script src="plugins.js" defer></script>
+</head>
+<body class="sub-page" id="top">
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="nav solid" data-header>
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Kivo 首页"><img src="assets/kivo-logo.svg" alt="Kivo" width="84" height="30"></a>
+      <nav aria-label="主导航">
+        <a href="index.html#demo">体验</a><a href="index.html#sources">聚合</a><a href="index.html#player">播放</a><a href="index.html#remote">遥控</a><a href="index.html#privacy">隐私</a><a href="index.html#faq">常见问题</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="nav-link" href="plugins.html" aria-current="page">插件</a>
+        <a class="nav-link" href="sdk.html">SDK</a>
+        <a class="btn btn-small btn-gold" href="index.html#download">获取 Kivo</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="store-main" id="main">
+    <div class="wrap">
+      <header class="store-topbar">
+        <div class="store-topbar-title">
+          <div class="store-title-line">
+            <h1>插件目录</h1>
+            <span class="store-pill">Apple 芯片 · macOS 14+ · API v1 / v2</span>
+          </div>
+          <p>每个视频源都是独立的 <code>.bundle</code>，只输出目录、播放资源、账号与弹幕数据；播放器与影视库由 Kivo 统一提供。</p>
+        </div>
+        <div class="store-topbar-actions">
+          <a class="btn btn-glass btn-small" href="sdk.html">阅读 SDK 文档</a>
+          <button type="button" class="btn btn-gold btn-small" id="open-submit-dialog" aria-haspopup="dialog">提交插件</button>
+        </div>
+      </header>
+
+      <div class="store-controls">
+        <div class="store-tabs" id="store-categories" role="tablist" aria-label="插件分类"></div>
+        <div class="store-right">
+          <div class="store-seg" id="store-status-filter" role="group" aria-label="插件状态">
+            <button type="button" data-status="all" aria-pressed="true">全部</button>
+            <button type="button" data-status="stable" aria-pressed="false">稳定</button>
+            <button type="button" data-status="experimental" aria-pressed="false">实验版</button>
+          </div>
+          <search class="store-search">
+            <label class="sr-only" for="store-search">搜索插件</label>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13.5 13.5 17 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input type="search" id="store-search" placeholder="搜索平台、能力或简介…" autocomplete="off" aria-controls="store-list">
+            <kbd aria-hidden="true">/</kbd>
+          </search>
+        </div>
+      </div>
+
+      <section class="store-directory" aria-labelledby="store-list-title">
+        <div class="store-row-head">
+          <div class="store-row-left">
+            <h2 id="store-list-title">可用插件</h2>
+            <span class="store-count" id="store-count" role="status" aria-atomic="true">0 个插件</span>
+          </div>
+          <a class="store-inline-link" href="#install">安装与安全说明 ↓</a>
+        </div>
+
+        <ul class="store-grid" id="store-list"></ul>
+
+        <div class="store-empty" id="store-empty" hidden>
+          <h3>没有找到匹配的插件</h3>
+          <p>换个关键词试试，或者使用 Kivo Plugin SDK 自己写一个。</p>
+          <div class="store-empty-actions">
+            <button type="button" class="btn btn-glass btn-small" id="store-reset">查看全部插件</button>
+            <a class="btn btn-gold btn-small" href="sdk.html">查看 SDK</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="store-cta card" aria-labelledby="dev-cta-title">
+        <div>
+          <p class="kicker">开发视频源</p>
+          <h2 id="dev-cta-title">用四个 C 符号，把新平台接入 Kivo。</h2>
+          <p>无需改动宿主源码或播放器 UI。插件只负责链接识别、目录解析、播放地址与可选弹幕，宿主负责影视库、libmpv 播放与遥控导航。</p>
+        </div>
+        <div class="store-cta-actions">
+          <a class="btn btn-gold btn-small" href="downloads/KivoPluginSDK-1.1.1.zip" download>下载 SDK 1.1.1</a>
+          <a class="btn btn-glass btn-small" href="sdk.html">完整接口文档 →</a>
+        </div>
+      </section>
+
+      <section class="store-install" id="install" aria-labelledby="install-title">
+        <div class="store-row-head">
+          <h2 id="install-title">安装与安全说明</h2>
+          <span class="store-sub">插件以 <code>.bundle</code> 分发，加载前校验清单、API 版本与二进制 SHA-256</span>
+        </div>
+        <ol class="install-steps">
+          <li class="card">
+            <span class="is-num">01</span>
+            <h3>随包安装或导入本地包</h3>
+            <p>打开 Kivo「设置 → 插件」，可直接安装随应用提供的官方插件，或导入本地可信的 <code>.bundle</code> 插件包。</p>
+          </li>
+          <li class="card">
+            <span class="is-num">02</span>
+            <h3>按需登录与添加链接</h3>
+            <p>需要账号的平台通过官方页面扫码登录；回到「视频源管理」粘贴链接即可预览并入库。</p>
+          </li>
+          <li class="card">
+            <span class="is-num">03</span>
+            <h3>停用、卸载与内容分级</h3>
+            <p>停用或卸载不会删除影视库与观看进度；替换新二进制需要重启 Kivo。公开目录仅展示 <code>general</code> 分级插件。</p>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer wrap">
+    <a class="brand" href="index.html"><img src="assets/kivo-logo.svg" alt="Kivo" width="62" height="22" loading="lazy"></a>
+    <p>把客厅，装进你的 Mac。</p>
+    <nav class="footer-links" aria-label="页脚导航">
+      <a href="index.html">首页</a><a href="sdk.html">插件 SDK</a><a href="#top">回到顶部 ↑</a>
+    </nav>
+  </footer>
+
+  <!-- 插件详情弹窗 -->
+  <dialog class="dialog detail-dialog" id="plugin-detail-dialog" aria-labelledby="detail-title">
+    <form method="dialog"><button class="dialog-close" aria-label="关闭详情" autofocus>×</button></form>
+    <div class="detail-body" id="detail-content"></div>
+  </dialog>
+
+  <!-- 开发者提交弹窗 -->
+  <dialog class="dialog submit-dialog" id="submit-plugin-dialog" aria-labelledby="submit-title">
+    <form method="dialog"><button class="dialog-close" aria-label="关闭" autofocus>×</button></form>
+    <div class="submit-body">
+      <p class="kicker">开发者提交</p>
+      <h2 id="submit-title">准备你的插件清单</h2>
+      <p class="submit-lead">新插件包必须在 <code>plugin.json</code> 和最终 <code>Contents/manifest.json</code> 顶层如实声明 <code>contentRating</code>，并在编译签名后写入二进制 SHA-256。</p>
+      <ol class="submit-flow">
+        <li>
+          <strong>1. 基于 SDK 1.1.1 打包</strong>
+          <p>下载 <a href="downloads/KivoPluginSDK-1.1.1.zip" download>KivoPluginSDK-1.1.1.zip</a>，在 <code>Template</code> 上实现并执行 <code>bash build.sh</code> 生成 <code>.bundle</code>。</p>
+        </li>
+        <li>
+          <strong>2. 核对 <code>plugin.json</code> 清单</strong>
+          <div class="code-box">
+            <pre><code id="submit-json">{
+  "id": "com.yourname.source",
+  "name": "平台名称",
+  "version": "1.0.0",
+  "apiVersion": 1,
+  "contentRating": "general",
+  "executable": "PluginSource",
+  "summary": "一句话说明支持的链接与能力。",
+  "capabilities": ["collection", "playback"]
+}</code></pre>
+            <button type="button" class="copy-btn" id="copy-submit-json">复制</button>
+          </div>
+        </li>
+        <li>
+          <strong>3. 遵守安全边界</strong>
+          <p>不绕过 DRM、付费或地区限制；错误信息和日志不泄露媒体 URL、Cookie 与请求头。</p>
+        </li>
+      </ol>
+      <div class="submit-actions">
+        <a class="btn btn-gold btn-small" href="sdk.html">阅读完整 SDK 文档</a>
+        <a class="btn btn-glass btn-small" href="downloads/KivoPluginSDK-1.1.1.zip" download>下载 SDK 压缩包</a>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>

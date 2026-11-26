@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta name="description" content="Kivo 是本地优先的 macOS 原生个人影视库：把散落在各个平台的剧集收进一个电视式界面，原生流畅播放、弹幕叠加、方向键与遥控器操作，数据只存在你的 Mac 上。">
+  <meta property="og:title" content="Kivo · 把客厅，装进你的 Mac">
+  <meta property="og:description" content="本地优先的 macOS 原生个人影视库。插件聚合、原生播放、电视式交互。">
+  <meta property="og:image" content="assets/art/cinema/hero-shanhai.webp">
+  <title>Kivo · 把客厅，装进你的 Mac</title>
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/app-icon.png">
+  <link rel="preload" href="assets/art/cinema/hero-shanhai.webp" as="image">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="plugins-data.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="nav" data-header>
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Kivo 首页"><img src="assets/kivo-logo.svg" alt="Kivo" width="84" height="30"></a>
+      <nav aria-label="主导航">
+        <a href="#demo">体验</a><a href="#sources">聚合</a><a href="#player">播放</a><a href="#remote">遥控</a><a href="#privacy">隐私</a><a href="#faq">常见问题</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="nav-link" href="plugins.html">插件</a>
+        <a class="nav-link" href="sdk.html">SDK</a>
+        <a class="btn btn-small btn-gold" href="#download">获取 Kivo</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-backdrop" aria-hidden="true">
+        <img src="assets/art/cinema/hero-shanhai.webp" alt="" width="1600" height="900">
+      </div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-inner wrap">
+        <p class="eyebrow" data-reveal><span class="live-dot" aria-hidden="true"></span>macOS 原生 · Apple 芯片 · 本地优先</p>
+        <h1 id="hero-title" data-reveal style="--d:1">把客厅，<br><span class="nowrap">装进你的 <em>Mac</em>。</span></h1>
+        <p class="hero-sub" data-reveal style="--d:2">Kivo 把散落在各个平台的番剧、电视剧和直播收进同一面海报墙。方向键选片、回车开播，弹幕轻盈飘过画面——像客厅里的电视一样顺手。</p>
+        <div class="hero-cta" data-reveal style="--d:3">
+          <a class="btn btn-gold" href="#demo">
+            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M5 3.6v10.8c0 .7.8 1.1 1.4.7l8.2-5.4a.8.8 0 0 0 0-1.4L6.4 2.9C5.8 2.5 5 2.9 5 3.6Z" fill="currentColor"/></svg>
+            立即试玩
+          </a>
+          <a class="btn btn-glass" href="#download">获取 Kivo</a>
+        </div>
+        <ul class="hero-chips" data-reveal style="--d:4" aria-label="核心体验">
+          <li>多平台一面海报墙</li><li>打开即全屏影院</li><li>流畅原生弹幕</li><li>方向键与遥控器</li><li>片单只存你的 Mac</li>
+        </ul>
+      </div>
+      <a class="hero-scroll" href="#stats" aria-label="向下浏览"><span></span></a>
+    </section>
+
+    <!-- ================= STATS ================= -->
+    <section class="stats wrap" id="stats" aria-label="体验亮点">
+      <dl data-reveal>
+        <div><dt>操作体验</dt><dd>零鼠标<span>电视式导航</span></dd></div>
+        <div><dt>续播记忆</dt><dd>5<span>秒自动存进度</span></dd></div>
+        <div><dt>片单与隐私</dt><dd>纯本机<span>无账号不上传</span></dd></div>
+        <div><dt>系统要求</dt><dd>macOS<span>14+ 原生</span></dd></div>
+      </dl>
+    </section>
+
+    <!-- ================= DEMO ================= -->
+    <section class="section" id="demo" aria-labelledby="demo-title">
+      <header class="section-head wrap" data-reveal>
+        <p class="kicker">电视式体验</p>
+        <h2 id="demo-title">不用鼠标，<br>也能看完一整季。</h2>
+        <p>专为大屏与遥控打磨：方向键选片、回车开播、Esc 逐层返回。点一下屏幕，用键盘或右侧遥控器亲手试试。</p>
+      </header>
+
+      <div class="demo wrap-wide" data-reveal>
+        <div class="tv" id="tv">
+          <div class="tv-macbook">
+            <img class="tv-machine" src="assets/macbook-frame.webp" alt="MacBook Pro 外框" width="2072" height="1264">
+            <div class="tv-screen" id="tv-screen" tabindex="0" role="application" aria-label="Kivo 界面演示：方向键移动焦点，回车确认，Esc 返回，E 打开选集">
+              <div class="kv" id="kv" data-screen="home">
+                <!-- ===== Sidebar ===== -->
+                <aside class="kv-side" aria-hidden="false">
+                  <img class="kv-logo" src="assets/kivo-logo.svg" alt="Kivo" width="112" height="40">
+                  <nav class="kv-nav" data-zone="side">
+                    <button class="kv-nav-item is-active" data-f data-action="nav-home"><svg viewBox="0 0 24 24"><path d="M4 11.2 12 4.5l8 6.7V19a1 1 0 0 1-1 1h-4.6v-5.4H9.6V20H5a1 1 0 0 1-1-1z"/></svg><span>首页</span></button>
+                    <button class="kv-nav-item" data-f data-action="nav-library"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="M8 5v14M16 5v14M3.5 9.5H8M3.5 14.5H8M16 9.5h4.5M16 14.5h4.5"/></svg><span>影视库</span></button>
+                    <button class="kv-nav-item" data-f data-action="nav-follow"><svg viewBox="0 0 24 24"><rect x="3.5" y="7" width="17" height="12" rx="2"/><path d="m9 3 3 4 3-4"/></svg><span>我的追番</span></button>
+                    <button class="kv-nav-item" data-f data-action="nav-fav"><svg viewBox="0 0 24 24"><path d="m12 4 2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 16.4l-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/></svg><span>我的收藏</span></button>
+                    <button class="kv-nav-item" data-f data-action="nav-iptv"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="2"/><path d="M8.2 9.2a5.4 5.4 0 0 0 0 7.6M15.8 9.2a5.4 5.4 0 0 1 0 7.6M5.4 6.4a9.4 9.4 0 0 0 0 13.2M18.6 6.4a9.4 9.4 0 0 1 0 13.2"/></svg><span>IPTV</span></button>
+                  </nav>
+                  <nav class="kv-nav kv-nav-bottom" data-zone="side">
+                    <button class="kv-nav-item" data-f data-action="nav-sources"><svg viewBox="0 0 24 24"><rect x="4" y="4.5" width="16" height="6" rx="2"/><rect x="4" y="13.5" width="16" height="6" rx="2"/><path d="M8 7.5h.01M8 16.5h.01"/></svg><span>视频源</span></button>
+                    <button class="kv-nav-item" data-f data-action="nav-settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></svg><span>设置</span></button>
+                  </nav>
+                </aside>
+
+                <!-- ===== Home ===== -->
+                <section class="kv-page kv-home" data-page="home" aria-label="首页">
+                  <div class="kv-home-scroll" id="kv-home-scroll">
+                    <div class="kv-hero">
+                      <img class="kv-hero-bg" id="kv-hero-bg" src="assets/art/cinema/hero-shanhai.webp" alt="">
+                      <div class="kv-hero-copy">
+                        <p class="kv-hero-kicker">我的影视库</p>
+                        <h3 class="kv-hero-title" id="kv-hero-title">山海纪事</h3>
+                        <p class="kv-hero-meta" id="kv-hero-meta">动画 · 奇幻 · Bilibili</p>
+                        <p class="kv-hero-desc" id="kv-hero-desc">山海之间，异兽横行。少年背剑出行，走向属于自己的远方。</p>
+                        <div class="kv-hero-actions">
+                          <button class="kv-btn kv-btn-gold" data-f data-action="hero-play"><svg viewBox="0 0 18 18"><path d="M5 3.6v10.8c0 .7.8 1.1 1.4.7l8.2-5.4a.8.8 0 0 0 0-1.4L6.4 2.9C5.8 2.5 5 2.9 5 3.6Z"/></svg><span>继续观看</span></button>
+                          <span class="kv-hero-ep" id="kv-hero-ep">第 23 集</span>
+                          <button class="kv-btn kv-btn-line" data-f data-action="hero-detail">查看详情</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="kv-row">
+                      <h4>继续观看</h4>
+                      <div class="kv-continue" id="kv-continue"></div>
+                    </div>
+                    <div class="kv-row">
+                      <h4>我的影视库</h4>
+                      <div class="kv-posters" id="kv-posters"></div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- ===== Detail ===== -->
+                <section class="kv-page kv-detail" data-page="detail" aria-label="作品详情">
+                  <img class="kv-detail-bg" id="kv-detail-bg" src="" alt="">
+                  <div class="kv-detail-body">
+                    <div class="kv-detail-head">
+                      <img class="kv-detail-poster" id="kv-detail-poster" src="" alt="">
+                      <div class="kv-detail-info">
+                        <h3 id="kv-detail-title"></h3>
+                        <p class="kv-detail-meta" id="kv-detail-meta"></p>
+                        <p class="kv-detail-desc" id="kv-detail-desc"></p>
+                        <div class="kv-detail-actions">
+                          <button class="kv-btn kv-btn-gold" data-f data-action="detail-play"><svg viewBox="0 0 18 18"><path d="M5 3.6v10.8c0 .7.8 1.1 1.4.7l8.2-5.4a.8.8 0 0 0 0-1.4L6.4 2.9C5.8 2.5 5 2.9 5 3.6Z"/></svg><span id="kv-detail-play-label">播放</span></button>
+                          <button class="kv-btn kv-btn-line kv-icon-btn" data-f data-action="detail-fav" aria-label="收藏"><svg viewBox="0 0 24 24"><path d="m12 4 2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 16.4l-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/></svg><span id="kv-fav-label">收藏</span></button>
+                          <button class="kv-btn kv-btn-line kv-icon-btn" data-f data-action="detail-refresh" aria-label="刷新目录"><svg viewBox="0 0 24 24"><path d="M19 12a7 7 0 1 1-2.05-4.95M19 5v4h-4"/></svg><span>刷新目录</span></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="kv-sticky">
+                      <div class="kv-sticky-title"><strong>正片</strong><span id="kv-ep-total"></span></div>
+                      <div class="kv-ranges" id="kv-ranges"></div>
+                    </div>
+                    <div class="kv-epgrid" id="kv-epgrid"></div>
+                  </div>
+                </section>
+
+                <!-- ===== Player ===== -->
+                <section class="kv-page kv-player" data-page="player" aria-label="播放器">
+                  <div class="kv-video" id="kv-video"><img id="kv-video-img" src="" alt=""></div>
+                  <div class="kv-danmaku" id="kv-danmaku" aria-hidden="true"></div>
+                  <div class="kv-osd" id="kv-osd" aria-live="polite"></div>
+                  <div class="kv-pause-badge" id="kv-pause-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg></div>
+                  <div class="kv-top" id="kv-top">
+                    <strong id="kv-player-title"></strong><span id="kv-player-ep"></span>
+                  </div>
+                  <div class="kv-controls" id="kv-controls">
+                    <div class="kv-progress"><div class="kv-progress-fill" id="kv-progress-fill"></div><div class="kv-progress-buffer"></div></div>
+                    <div class="kv-ctrl-row">
+                      <div class="kv-ctrl-left">
+                        <button class="kv-ctrl" data-f data-action="p-prev" aria-label="上一集"><svg viewBox="0 0 24 24"><path d="M6 5v14M19 5.8v12.4a.8.8 0 0 1-1.2.7L9 12.7a.8.8 0 0 1 0-1.4l8.8-6.2a.8.8 0 0 1 1.2.7Z"/></svg></button>
+                        <button class="kv-ctrl kv-ctrl-main" data-f data-action="p-toggle" id="kv-play-btn" aria-label="暂停"><svg viewBox="0 0 24 24" class="i-pause"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg><svg viewBox="0 0 24 24" class="i-play"><path d="M7 4.8v14.4c0 .9 1 1.4 1.7.9l10.6-7.2a1.1 1.1 0 0 0 0-1.8L8.7 3.9C8 3.4 7 3.9 7 4.8Z"/></svg></button>
+                        <button class="kv-ctrl" data-f data-action="p-next" aria-label="下一集"><svg viewBox="0 0 24 24"><path d="M18 5v14M5 5.8v12.4a.8.8 0 0 0 1.2.7l8.8-6.2a.8.8 0 0 0 0-1.4L6.2 5.1A.8.8 0 0 0 5 5.8Z"/></svg></button>
+                        <span class="kv-time" id="kv-time">00:00 / 24:00</span>
+                      </div>
+                      <div class="kv-ctrl-right">
+                        <button class="kv-ctrl kv-ctrl-text is-on" data-f data-action="p-danmaku" id="kv-dm-btn">弹</button>
+                        <button class="kv-ctrl kv-ctrl-text" data-f data-action="p-quality" id="kv-q-btn">1080P</button>
+                        <button class="kv-ctrl kv-ctrl-text" data-f data-action="p-speed" id="kv-s-btn">1.0×</button>
+                        <button class="kv-ctrl" data-f data-action="p-episodes" aria-label="选集"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
+                      </div>
+                    </div>
+                  </div>
+                  <aside class="kv-drawer" id="kv-drawer" aria-label="选集">
+                    <header><strong>选集</strong><span id="kv-drawer-count"></span></header>
+                    <div class="kv-drawer-list" id="kv-drawer-list"></div>
+                  </aside>
+                </section>
+
+                <div class="kv-toast" id="kv-toast" role="status" aria-live="polite"></div>
+                <div class="kv-splash" id="kv-splash" aria-hidden="true">
+                  <img src="assets/kivo-logo.svg" alt="" width="200" height="71">
+                  <p>正在检查插件账号…</p>
+                </div>
+              </div>
+              <button class="tv-arm" id="tv-arm" type="button">
+                <span class="tv-arm-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.8v14.4c0 .9 1 1.4 1.7.9l10.6-7.2a1.1 1.1 0 0 0 0-1.8L8.7 3.9C8 3.4 7 3.9 7 4.8Z"/></svg></span>
+                <span>点击开始操控</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="remote" aria-label="虚拟遥控器">
+          <div class="remote-svg-wrap">
+            <svg class="remote-svg" viewBox="108 54 490 632" fill="none" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="遥控器按键">
+              <defs>
+                <linearGradient id="remote-fade" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+                  <stop offset="86%" stop-color="#fff" stop-opacity="1"/>
+                  <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+                </linearGradient>
+                <mask id="remote-mask">
+                  <rect x="108" y="54" width="490" height="632" fill="url(#remote-fade)"/>
+                </mask>
+              </defs>
+              <g mask="url(#remote-mask)">
+                <!-- 高亮交互层（位于白色线稿之下，与 Figma 图层顺序一致） -->
+                <g class="remote-keys">
+                  <circle class="rk" cx="226.259" cy="108" r="21" data-remote="power" role="button" tabindex="0" aria-label="电源（保存并回首页）"><title>电源</title></circle>
+                  <circle class="rk" cx="324.259" cy="108" r="21" data-remote="controls" role="button" tabindex="0" aria-label="呼出控制栏"><title>呼出控制栏</title></circle>
+                  <path class="rk" d="M324.76 158.505C352.094 185.842 352.093 230.162 324.757 257.497L297.887 230.627C310.382 218.132 310.38 197.87 297.887 185.372L324.76 158.505Z" fill-rule="evenodd" clip-rule="evenodd" transform="rotate(-90 275.259 208)" data-remote="up" role="button" tabindex="0" aria-label="上"><title>上</title></path>
+                  <path class="rk" d="M324.76 158.505C352.094 185.842 352.093 230.162 324.757 257.497L297.887 230.627C310.382 218.132 310.38 197.87 297.887 185.372L324.76 158.505Z" fill-rule="evenodd" clip-rule="evenodd" data-remote="right" role="button" tabindex="0" aria-label="右"><title>右</title></path>
+                  <path class="rk" d="M324.76 158.505C352.094 185.842 352.093 230.162 324.757 257.497L297.887 230.627C310.382 218.132 310.38 197.87 297.887 185.372L324.76 158.505Z" fill-rule="evenodd" clip-rule="evenodd" transform="rotate(90 275.259 208)" data-remote="down" role="button" tabindex="0" aria-label="下"><title>下</title></path>
+                  <path class="rk" d="M324.76 158.505C352.094 185.842 352.093 230.162 324.757 257.497L297.887 230.627C310.382 218.132 310.38 197.87 297.887 185.372L324.76 158.505Z" fill-rule="evenodd" clip-rule="evenodd" transform="rotate(180 275.259 208)" data-remote="left" role="button" tabindex="0" aria-label="左"><title>左</title></path>
+                  <circle class="rk" cx="275.259" cy="208" r="32" data-remote="ok" role="button" tabindex="0" aria-label="确认"><title>确认 (OK)</title></circle>
+                  <circle class="rk" cx="240.259" cy="314" r="27" data-remote="back" role="button" tabindex="0" aria-label="返回"><title>返回</title></circle>
+                  <circle class="rk" cx="240.259" cy="375" r="27" data-remote="home" role="button" tabindex="0" aria-label="主页"><title>主页</title></circle>
+                  <circle class="rk" cx="240.259" cy="436" r="27" data-remote="menu" role="button" tabindex="0" aria-label="菜单（选集）"><title>菜单 / 选集</title></circle>
+                  <circle class="rk" cx="310.259" cy="314" r="27" data-remote="previous-episode" role="button" tabindex="0" aria-label="上一集"><title>上一集</title></circle>
+                  <circle class="rk" cx="310.259" cy="375" r="27" data-remote="next-episode" role="button" tabindex="0" aria-label="下一集"><title>下一集</title></circle>
+                  <circle class="rk" cx="310.259" cy="436" r="27" data-remote="play-pause" role="button" tabindex="0" aria-label="播放 / 暂停"><title>播放 / 暂停</title></circle>
+                </g>
+                <!-- Figma 88:1185 原始手持遥控器线稿轮廓 -->
+                <path class="remote-outline" d="M172.259 372C178.539 375.636 183.344 381.566 186.259 388.309C190.338 397.743 190.717 408.771 186.259 417.337C184.263 421.173 181.297 424.515 177.259 427C157.759 439 143.295 425.038 136.759 418C130.259 411 125.259 394 133.259 381.5C141.259 369 149.259 366.304 158.009 364.402C166.759 362.5 179.759 366 186.259 368.5M186.259 417.337V419.337M186.259 417.337V442.5M186.259 388.309V368.5M186.259 368.5V95C186.259 83.7989 186.259 78.1984 188.439 73.9202C190.357 70.1569 193.416 67.0973 197.18 65.1799C201.458 63 207.058 63 218.259 63H332.259C343.46 63 349.061 63 353.339 65.1799C357.102 67.0973 360.162 70.1569 362.08 73.9202C364.259 78.1984 364.259 83.799 364.259 95V301.198M186.259 442.5C180.341 439.782 165.08 434.36 151.382 434.422C134.259 434.5 124.759 444 122.259 446.5C119.759 449 106.259 465.5 120.259 484C124.716 489.889 129.953 494.865 135.065 498.89M186.259 442.5V464.838M135.065 498.89C142.799 504.981 150.245 508.894 154.259 510.5C160.869 512.918 176.212 514.401 186.259 501.824M135.065 498.89C133.052 497.254 131.759 496.162 131.759 496.162M135.065 498.89C137.9 501.194 142.165 504.576 146.259 507.5C153.259 512.5 162.759 518.5 162.759 518.5M186.259 501.824C186.599 501.399 186.932 500.958 187.259 500.5C198.277 485.076 191.529 471.572 186.259 464.838M186.259 501.824V534.581M186.259 464.838C185.55 463.932 184.868 463.149 184.259 462.5C177.259 455.036 159.259 443.5 156.759 441.5M180.921 475.67C180.843 475.714 180.764 475.758 180.686 475.802C170.092 481.746 161.416 486.614 158.167 499.551C158.071 499.935 157.838 500.269 157.515 500.489C157.192 500.709 156.802 500.798 156.42 500.74C155.832 500.65 155.208 500.279 154.549 499.628C153.891 498.976 153.243 498.339 152.607 497.714C148.357 493.533 144.623 489.86 141.651 485.638C137.601 479.895 137.399 473.795 141.325 467.617C145.304 461.352 150.573 458.41 157.131 458.79C164.252 459.196 175.307 465.954 181.19 470.672C181.748 471.118 182.156 471.715 182.356 472.377C182.556 473.04 182.538 473.732 182.303 474.355C182.131 474.807 181.67 475.245 180.921 475.67ZM180.686 475.802L180.921 475.67M186.259 571.265C187.64 569.907 188.969 568.328 190.259 566.5C196.259 558 195.259 545 190.259 538.5C189.406 537.391 188.006 536.049 186.259 534.581C179.819 529.169 168.659 522.04 162.759 518.5C159.705 516.667 154.43 515.417 146.577 515.676C136.759 516 126.759 523.5 124.259 527C121.759 530.5 114.259 541.5 118.759 555C122.453 566.082 131.875 574.805 138.45 580.893C139.884 582.221 141.185 583.426 142.259 584.5C148.259 590.5 179.759 618.5 186.259 623.5M186.259 623.5V571.265M186.259 623.5V679M186.259 571.265C181.221 576.22 175.51 578.221 168.584 578.563C159.759 579 134.759 568 131.759 566.5M183.445 547.29C183.555 547.206 183.665 547.123 183.775 547.04C184.201 546.715 184.553 546.249 184.83 545.641C185.005 545.253 185.044 544.817 184.94 544.402C184.836 543.987 184.595 543.617 184.256 543.35C182.726 542.16 180.849 541.068 178.627 540.074C174.344 538.16 170.366 536.685 166.694 535.648C158.63 533.376 149.946 536.762 147.52 545.062C145.622 551.558 149.122 556.389 154.251 559.931C158.244 562.692 162.287 564.934 166.379 566.658C169.756 568.074 170.817 564.167 171.566 561.41C171.698 560.925 171.82 560.475 171.943 560.097C173.734 554.631 178.768 550.825 183.445 547.29ZM183.775 547.04L183.445 547.29M364.259 301.198C360.996 306.5 358.706 313.138 357.759 320C356.007 332.703 356.941 354.231 364.259 374.501M364.259 301.198C367.891 295.298 372.729 291.054 378.259 290C382.885 289.119 386.249 288.529 389.731 290.791M364.259 374.501C365.295 377.369 366.458 380.211 367.759 383C376.159 401 387.759 411.5 387.759 411.5C387.972 414.502 388.833 421.904 390.578 427.502C392.759 434.5 398.759 447.5 404.759 465C411.274 484 407.259 501.5 407.259 501.5C400.926 508.167 389.405 527.681 387.259 552C384.259 586 391.759 624.5 403.759 644.5M364.259 374.501V681M337.259 314V375M337.259 314C337.259 313.536 337.259 313.304 337.257 313.107C337.044 298.779 325.48 287.215 311.152 287.003C310.956 287 310.724 287 310.259 287M337.259 314C337.259 328.912 325.171 341 310.259 341C295.348 341 283.259 328.912 283.259 314M337.259 314C337.259 299.088 325.171 287 310.259 287M337.259 375C337.259 375.464 337.259 375.696 337.257 375.893C337.044 390.221 325.48 401.785 311.152 401.997C310.956 402 310.724 402 310.259 402M337.259 375C337.259 389.912 325.171 402 310.259 402M337.259 375C337.259 360.088 325.171 348 310.259 348C295.348 348 283.259 360.088 283.259 375M283.259 375V314M283.259 375C283.259 375.464 283.259 375.696 283.262 375.893C283.475 390.221 295.039 401.785 309.367 401.997C309.563 402 309.795 402 310.259 402M283.259 375C283.259 389.912 295.348 402 310.259 402M283.259 314C283.259 313.536 283.259 313.304 283.262 313.107C283.475 298.779 295.039 287.215 309.367 287.003C309.563 287 309.795 287 310.259 287M283.259 314C283.259 299.088 295.348 287 310.259 287M186.259 259C180.426 255 166.259 247.9 156.259 251.5C143.759 256 140.259 266 139.759 272C139.259 278 143.259 288.5 152.259 298C161.259 307.5 173.759 319.5 186.259 329.5M591.259 678.5C576.759 661.167 544.859 615.6 533.259 572C518.759 517.5 517.259 512 514.759 499.5C512.259 487 512.242 479.62 496.501 458.81C480.759 438 465.259 415 457.759 402C450.259 389 450.989 383.638 441.624 372.819C434.814 364.951 426.491 356.149 417.213 340.027M417.213 340.027C413.732 333.979 410.117 326.901 406.397 318.456C398.767 301.136 394.153 293.663 389.731 290.791M417.213 340.027C403.245 347.985 396.752 340.992 390.259 334C383.759 327 378.759 311.5 378.57 306.429C378.381 301.357 381.259 294.5 384.259 292C386.312 290.289 388.512 290.408 389.731 290.791M417.213 340.027C417.228 340.018 417.244 340.009 417.259 340M389.731 290.791C389.937 290.855 390.115 290.928 390.259 291M219.636 101.636C216.121 105.151 216.121 110.849 219.636 114.364C223.151 117.879 228.849 117.879 232.364 114.364C235.879 110.849 235.879 105.151 232.364 101.636M226 99V108M325 115V118M325 115C326.857 115 328.637 114.262 329.95 112.95C331.263 111.637 332 109.857 332 108V106M325 115C323.143 115 321.363 114.262 320.05 112.95C318.737 111.637 318 109.857 318 108V106M310 306.5V314M310 314V321.5M310 314H317.5M310 314H302.5M243.75 321.5L236.25 314L243.75 306.5M232 429H248M232 436H248M232 443H248M303 375H317M305 445H315M272 149L275 146L278 149M272 267L275 270L278 267M216 211L213 208L216 205M334 211L337 208L334 205M247.259 108C247.259 119.598 237.857 129 226.259 129C214.661 129 205.259 119.598 205.259 108C205.259 96.402 214.661 87 226.259 87C237.857 87 247.259 96.402 247.259 108ZM345.259 108C345.259 119.598 335.857 129 324.259 129C312.661 129 303.259 119.598 303.259 108C303.259 96.402 312.661 87 324.259 87C335.857 87 345.259 96.402 345.259 108ZM141.09 387.533C135.372 397.463 139.087 409.847 146.259 417.5C146.441 417.695 146.744 417.756 146.984 417.646C147.434 417.441 147.778 416.766 147.863 416.31C150.198 404.036 157.419 396.547 167.669 391.048C169.572 390.034 171.924 388.704 172.943 387.047C173.227 386.587 173.339 386.038 173.259 385.5C173.179 384.962 172.913 384.472 172.508 384.118C169.06 381.085 162.405 378.425 157.846 378.076C150.611 377.534 145.026 380.686 141.09 387.533ZM345.259 208C345.259 246.66 313.919 278 275.259 278C236.599 278 205.259 246.66 205.259 208C205.259 169.34 236.599 138 275.259 138C313.919 138 345.259 169.34 345.259 208ZM307.259 208C307.259 225.673 292.933 240 275.259 240C257.586 240 243.259 225.673 243.259 208C243.259 190.327 257.586 176 275.259 176C292.933 176 307.259 190.327 307.259 208ZM267.259 314C267.259 328.912 255.171 341 240.259 341C225.348 341 213.259 328.912 213.259 314C213.259 299.088 225.348 287 240.259 287C255.171 287 267.259 299.088 267.259 314ZM267.259 375C267.259 389.912 255.171 402 240.259 402C225.348 402 213.259 389.912 213.259 375C213.259 360.088 225.348 348 240.259 348C255.171 348 267.259 360.088 267.259 375ZM267.259 436C267.259 450.912 255.171 463 240.259 463C225.348 463 213.259 450.912 213.259 436C213.259 421.088 225.348 409 240.259 409C255.171 409 267.259 421.088 267.259 436ZM337.259 436C337.259 450.912 325.171 463 310.259 463C295.348 463 283.259 450.912 283.259 436C283.259 421.088 295.348 409 310.259 409C325.171 409 337.259 421.088 337.259 436ZM325 98C326.657 98 328 99.3431 328 101V108C328 109.657 326.657 111 325 111C323.343 111 322 109.657 322 108V101C322 99.3431 323.343 98 325 98ZM231 373C231 372.709 231.063 372.422 231.186 372.158C231.308 371.894 231.487 371.66 231.709 371.472L238.709 365.472C239.07 365.167 239.527 365 240 365C240.473 365 240.93 365.167 241.291 365.472L248.291 371.472C248.513 371.66 248.692 371.894 248.814 372.158C248.937 372.422 249 372.709 249 373V382C249 382.53 248.789 383.039 248.414 383.414C248.039 383.789 247.53 384 247 384H233C232.47 384 231.961 383.789 231.586 383.414C231.211 383.039 231 382.53 231 382V373ZM302 427H318C319.105 427 320 427.895 320 429V439C320 440.105 319.105 441 318 441H302C300.895 441 300 440.105 300 439V429C300 427.895 300.895 427 302 427Z" stroke="rgba(245, 243, 237, 0.88)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </svg>
+          </div>
+          <div class="remote-log" aria-live="polite">
+            <small>最近一次指令</small>
+            <code id="remote-url">kivo://remote/…</code>
+          </div>
+        </aside>
+      </div>
+
+      <div class="demo-foot wrap-wide" data-reveal>
+        <div class="keyhints" id="keyhints" aria-label="当前页面可用按键"></div>
+        <p class="demo-note">演示中的作品、海报与画面均为原创示意素材，不代表真实片源。</p>
+      </div>
+    </section>
+
+    <!-- ================= SOURCES ================= -->
+    <section class="section section-tight" id="sources" aria-labelledby="sources-title">
+      <header class="section-head wrap" data-reveal>
+        <p class="kicker">聚合</p>
+        <h2 id="sources-title">粘贴一个链接，<br>整季都进了影视库。</h2>
+        <p>装上常看平台的扩展，粘贴一条剧集链接，封面、简介和整季目录会自动归档进海报墙；已收进来的作品只更新剧集，不会重复。</p>
+      </header>
+
+      <div class="add-flow wrap" data-reveal>
+        <div class="add-panel">
+          <div class="add-panel-head">
+            <span class="add-dot"></span><span class="add-dot"></span><span class="add-dot"></span>
+            <strong>添加视频源</strong>
+          </div>
+          <div class="add-input" id="add-input">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>
+            <span id="add-link" class="add-link">选择下方的示例链接</span><i class="add-caret" aria-hidden="true"></i>
+          </div>
+          <div class="add-samples" role="group" aria-label="示例链接">
+            <button type="button" data-sample="0" aria-pressed="false">Bilibili 单集 ep</button>
+            <button type="button" data-sample="1" aria-pressed="false">Bilibili 整季 ss</button>
+            <button type="button" data-sample="2" aria-pressed="false">爱奇艺</button>
+            <button type="button" data-sample="3" aria-pressed="false">M3U 直播列表</button>
+          </div>
+          <ol class="add-steps" id="add-steps" aria-label="入库流程">
+            <li data-step="0"><b>1</b><span>识别链接</span><small id="add-s0">自动匹配对应平台</small></li>
+            <li data-step="1"><b>2</b><span>读取目录</span><small id="add-s1">正片、预告、花絮分开</small></li>
+            <li data-step="2"><b>3</b><span>作品预览</span><small id="add-s2">封面、简介与集数</small></li>
+            <li data-step="3"><b>4</b><span>确认入库</span><small id="add-s3">收进你的个人影视库</small></li>
+          </ol>
+        </div>
+        <div class="add-preview" id="add-preview" data-state="idle">
+          <div class="add-preview-empty">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="M8 5v14M16 5v14"/></svg>
+            <p>作品预览会出现在这里</p>
+          </div>
+          <div class="add-preview-card">
+            <img id="add-poster" src="" alt="">
+            <div>
+              <span class="add-plugin" id="add-plugin"></span>
+              <h3 id="add-title"></h3>
+              <p id="add-meta"></p>
+              <dl class="add-counts" id="add-counts"></dl>
+              <button type="button" class="btn btn-gold btn-small" id="add-confirm">确认入库</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PLAYER FEATURES ================= -->
+    <section class="section" id="player" aria-labelledby="player-title">
+      <header class="section-head wrap" data-reveal>
+        <p class="kicker">播放</p>
+        <h2 id="player-title">原生播放器，<br>为看剧这件事打磨。</h2>
+        <p>为 macOS 原生打造的流畅播放体验，登录只在平台官方页面完成。看片时控制栏自动隐去，选集、切清晰度与开弹幕用方向键就能一气呵成。</p>
+      </header>
+
+      <div class="bento wrap">
+        <article class="card bento-wide bento-danmaku" data-reveal>
+          <div class="bento-copy">
+            <h3>弹幕，长在画面上。</h3>
+            <p>与剧情精准同步，拖动进度条也不会错位；支持滚动、顶部与底部弹幕，字号、透明度与半屏区域随心调节。</p>
+          </div>
+          <div class="dm-stage" aria-hidden="true">
+            <img src="assets/art/cinema/still-wuyin.webp" alt="" loading="lazy">
+            <div class="dm-lanes" id="dm-lanes"></div>
+            <div class="dm-panel">
+              <span>字号 <b>100%</b></span><span>透明度 <b>80%</b></span><span>区域 <b>半屏</b></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card bento-drawer" data-reveal style="--d:1">
+          <div class="mini-drawer" aria-hidden="true">
+            <div class="mini-drawer-head"><strong>选集</strong><span>共 50 集</span></div>
+            <ol>
+              <li><b>21</b>雾中渡</li><li><b>22</b>赤岭之约</li><li class="on"><b>23</b>归墟<em>播放中</em></li><li><b>24</b>夜渡</li><li><b>25</b>山门</li>
+            </ol>
+          </div>
+          <h3>选集抽屉</h3>
+          <p>播放中按 E 或遥控器菜单键，从右侧滑出；支持集号与标题搜索，只列正片。</p>
+        </article>
+
+        <article class="card bento-options" data-reveal>
+          <div class="opt-stack" aria-hidden="true">
+            <div class="opt"><span>清晰度</span><b>1080P 高码率</b></div>
+            <div class="opt"><span>倍速</span><b>1.25×</b></div>
+            <div class="opt"><span>音轨</span><b>国语</b></div>
+            <div class="opt"><span>字幕</span><b>简体中文</b></div>
+          </div>
+          <h3>清晰度与音轨，所见即所得</h3>
+          <p>切换清晰度不断播、不丢进度；片源提供哪些音轨与字幕就展示哪些，界面始终干净。</p>
+        </article>
+
+        <article class="card bento-progress" data-reveal style="--d:1">
+          <div class="save-ring" aria-hidden="true">
+            <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="track"/><circle cx="60" cy="60" r="50" class="fill"/></svg>
+            <span>5<small>秒</small></span>
+          </div>
+          <h3>进度，从不丢</h3>
+          <p>播放中约每 5 秒保存，暂停、返回、退出和系统睡眠时也会保存。首页「继续观看」只保留真实未看完的作品。</p>
+        </article>
+
+        <article class="card bento-search" data-reveal style="--d:2">
+          <div class="py-search" aria-hidden="true">
+            <div class="py-field"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><span id="py-query">s</span><i></i></div>
+            <ul id="py-results"><li><b>山</b>海纪事</li></ul>
+          </div>
+          <h3>拼音也能搜</h3>
+          <p>中文、全拼、首字母都行；离线屏幕键盘支持拼音候选，物理键盘同样可用。</p>
+        </article>
+
+        <article class="card bento-wide bento-next" data-reveal>
+          <div class="bento-copy">
+            <h3>正片就是正片。</h3>
+            <p>正片按集号排成整齐的数字格，预告、花絮与其他版本单独收纳。开启自动连播时只在正片之间衔接，不会突然跳进下集预告。</p>
+          </div>
+          <div class="role-grid" aria-hidden="true">
+            <div class="role-tabs"><span class="on">1–50</span><span>51–100</span><span>101–150</span></div>
+            <div class="role-nums" id="role-nums"></div>
+            <div class="role-extra"><span>预告 · 3</span><span>花絮 · 12</span><span>其他版本 · 1</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= REMOTE ================= -->
+    <section class="section section-remote" id="remote" aria-labelledby="remote-title">
+      <header class="section-head wrap" data-reveal>
+        <p class="kicker">遥控</p>
+        <h2 id="remote-title">键盘顺手，<br>拿起遥控器更自在。</h2>
+        <p>用方向键和快捷键就能完成全部操作，无需额外授予敏感系统权限。搭配 <strong class="inline-strong">RemoteFlow</strong> 与实体遥控器，窝在沙发上也能切集、唤出选集、在灵动岛一眼看到追剧更新。</p>
+      </header>
+
+      <div class="remote-layout wrap">
+        <div class="remote-top">
+          <div class="card rf-card" data-reveal>
+            <div class="rf-head">
+              <img src="assets/app-icon.png" alt="" width="32" height="32">
+              <div><strong>灵动岛卡片</strong><small>搭配 RemoteFlow 使用</small></div>
+            </div>
+            <div class="rf-widgets">
+              <div class="rf-widget rf-widget-progress" id="rf-progress" aria-label="Kivo 观看进度灵动岛卡片">
+                <img class="rf-bg" id="rf-cover" src="assets/art/cinema/still-shanhai.webp" alt="" loading="lazy">
+                <div class="rf-shade" aria-hidden="true"></div>
+                <div class="rf-progress-body">
+                  <strong id="rf-title">山海纪事</strong>
+                  <span id="rf-ep">23 · 05:02 / 24:00</span>
+                  <div class="rf-bar"><i id="rf-bar"></i></div>
+                </div>
+              </div>
+              <div class="rf-widget rf-widget-updates" id="rf-updates-card" aria-label="Kivo 追剧更新灵动岛卡片">
+                <div class="rf-updates-body">
+                  <span id="rf-upd-sub">2 部作品有新集</span>
+                  <strong id="rf-upd-title">长安夜行 · 第 13 集</strong>
+                </div>
+              </div>
+            </div>
+            <p>在 RemoteFlow 的灵动岛里随时看进度、等更新：自动轮播最近未看完的作品，定时检查收藏与追番上新。</p>
+          </div>
+
+          <div class="card keys-card" data-reveal style="--d:1">
+            <div class="keys-head">
+              <h3>键盘就是遥控器</h3>
+              <p>所有常用操作都配好了顺手的快捷键</p>
+            </div>
+            <dl class="key-table">
+              <div><dt><kbd>Enter</kbd></dt><dd>暂停 / 继续，确认</dd></div>
+              <div><dt><kbd>←</kbd><kbd>→</kbd></dt><dd>后退 / 前进 10 秒</dd></div>
+              <div><dt><kbd>↓</kbd></dt><dd>进入控制栏</dd></div>
+              <div><dt><kbd>[</kbd><kbd>]</kbd></dt><dd>倍速增减</dd></div>
+              <div><dt><kbd>E</kbd></dt><dd>打开 / 关闭选集</dd></div>
+              <div><dt><kbd>F</kbd></dt><dd>切换全屏</dd></div>
+              <div><dt><kbd>M</kbd></dt><dd>静音</dd></div>
+              <div><dt><kbd>Esc</kbd></dt><dd>逐层返回</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="card url-card" data-reveal style="--d:1">
+          <div class="url-head">
+            <div class="url-head-left">
+              <div class="url-title-row">
+                <h3>开放遥控指令</h3>
+                <span class="url-scheme">kivo://remote/&lt;action&gt;</span>
+              </div>
+              <p>支持 RemoteFlow、快捷指令或任意按键映射工具直接触发，点击卡片可复制测试命令。</p>
+            </div>
+            <div class="url-try">
+              <code>open "kivo://remote/next-episode"</code>
+              <button type="button" class="copy-btn" data-copy='open "kivo://remote/next-episode"'>复制</button>
+            </div>
+          </div>
+
+          <ul class="url-grid" id="url-list">
+            <li data-cmd="up"><button type="button" class="url-item" data-copy='open "kivo://remote/right"'><strong>方向导航</strong><code>up · down · left · right</code><span>浏览选片；播放中快退 / 快进 10 秒</span></button></li>
+            <li data-cmd="left-repeat"><button type="button" class="url-item" data-copy='open "kivo://remote/right-repeat"'><strong>长按微调</strong><code>left-repeat · right-repeat</code><span>长按连跳阶段，每次微调 2 秒</span></button></li>
+            <li data-cmd="ok"><button type="button" class="url-item" data-copy='open "kivo://remote/ok"'><strong>确认 / 暂停</strong><code>ok</code><span>确认当前焦点；播放中暂停或继续</span></button></li>
+            <li data-cmd="back"><button type="button" class="url-item" data-copy='open "kivo://remote/back"'><strong>逐层返回</strong><code>back</code><span>选集抽屉 → 控制栏 → 退出播放</span></button></li>
+            <li data-cmd="home"><button type="button" class="url-item" data-copy='open "kivo://remote/home"'><strong>回到首页</strong><code>home</code><span>一键返回首页，播放中自动存进度</span></button></li>
+            <li data-cmd="menu"><button type="button" class="url-item" data-copy='open "kivo://remote/menu"'><strong>选集 / 频道</strong><code>menu</code><span>播放中唤出选集，看直播打开频道表</span></button></li>
+            <li data-cmd="next-episode"><button type="button" class="url-item" data-copy='open "kivo://remote/next-episode"'><strong>上下切集</strong><code>previous-episode · next-episode</code><span>直接切换上下集正片，或上下换台</span></button></li>
+            <li data-cmd="power"><button type="button" class="url-item" data-copy='open "kivo://remote/power"'><strong>长按退出</strong><code>power</code><span>长按自动保存进度并安全退出 Kivo</span></button></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PLUGINS ================= -->
+    <section class="section section-tight" id="plugins" aria-labelledby="plugins-title">
+      <header class="section-head wrap" data-reveal>
+        <p class="kicker">插件</p>
+        <h2 id="plugins-title">平台按需安装，<br>播放器始终如一。</h2>
+        <p>想看哪个平台就装哪个扩展，不用在几个网页和客户端之间来回切。无论看番、追剧还是看直播，操作习惯和画面体验始终统一。</p>
+      </header>
+      <div class="plugin-row wrap" id="plugin-row" data-reveal></div>
+      <div class="plugin-cta wrap" data-reveal>
+        <a class="btn btn-glass" href="plugins.html">浏览全部插件</a>
+        <a class="btn btn-ghost" href="sdk.html">用 SDK 开发插件 <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ================= PRIVACY ================= -->
+    <section class="section" id="privacy" aria-labelledby="privacy-title">
+      <div class="privacy wrap" data-reveal>
+        <div class="privacy-copy">
+          <p class="kicker">本地优先</p>
+          <h2 id="privacy-title">你的片单，<br>只存在你的 Mac 上。</h2>
+          <p>没有 Kivo 账号，没有云端同步，也没有任何统计上报。你的片单、分类和观看进度全都留在自己的 Mac 上，换电脑时一键导出备份就能带走。</p>
+          <ul class="privacy-list">
+            <li><b>不留敏感痕迹</b><span>播放会话与临时链接只用于当次观影，不会写入片单或备份文件。</span></li>
+            <li><b>会话彼此隔离</b><span>浏览海报与账号登录完全分开，不同平台的登录信息互不串用。</span></li>
+            <li><b>官方页面登录</b><span>账号只在平台官方页面扫码登录，Kivo 从不经手你的密码。</span></li>
+            <li><b>儿童锁</b><span>每次启动默认锁定，自动隐藏不宜儿童观看的内容。</span></li>
+          </ul>
+        </div>
+        <ol class="privacy-flow" aria-label="数据流向">
+          <li>
+            <span class="pf-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 3.6 5.4 3.6 8.5s-1.1 5.9-3.6 8.5c-2.5-2.6-3.6-5.4-3.6-8.5S9.5 6.1 12 3.5Z"/></svg></span>
+            <b>视频平台</b><small>使用你自己的账号</small>
+          </li>
+          <li class="pf-link" aria-hidden="true"><span>直连</span></li>
+          <li>
+            <span class="pf-icon pf-gold"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="12" rx="2"/><path d="M2 19.5h20"/></svg></span>
+            <b>你的 Mac</b><small>片单与进度只留本机</small>
+          </li>
+          <li class="pf-link pf-cut" aria-hidden="true"><span>✕</span></li>
+          <li class="pf-off">
+            <span class="pf-icon"><svg viewBox="0 0 24 24"><path d="M7 18a4.5 4.5 0 0 1-.5-9 6 6 0 0 1 11.5 1.5A3.75 3.75 0 0 1 17.5 18z"/><path d="M4 4l16 16"/></svg></span>
+            <b>Kivo 服务器</b><small>根本不存在</small>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="section section-tight" id="faq" aria-labelledby="faq-title">
+      <div class="faq wrap">
+        <header class="faq-head" data-reveal>
+          <p class="kicker">常见问题</p>
+          <h2 id="faq-title">还有疑问？</h2>
+          <p>片源、账号、设备，一次说清。</p>
+        </header>
+        <div class="faq-list" data-reveal style="--d:1">
+          <details class="faq-item" name="faq" open><summary>Kivo 提供片源吗？</summary><p>不提供。Kivo 是你的个人影视库与播放器，内容来自你自己添加的链接和直播列表，能看哪些内容以你在对应平台的账号为准。</p></details>
+          <details class="faq-item" name="faq"><summary>会员或付费内容能看吗？</summary><p>你的账号在原平台能看什么，在 Kivo 里就能看什么。Kivo 尊重各平台的版权与会员权益，暂不支持加密付费资源。</p></details>
+          <details class="faq-item" name="faq"><summary>现在支持哪些平台？</summary><p>目前官方提供 Bilibili 番剧（支持单集与整季链接）、爱奇艺（实验版）以及 IPTV 直播列表（实验版）；更多平台也可以通过扩展陆续接入。</p></details>
+          <details class="faq-item" name="faq"><summary>我需要准备什么？</summary><p>一台 Apple 芯片 Mac，系统升级到 macOS 14 或更高版本即可。目前处于内测阶段，独立安装包正在准备中。</p></details>
+          <details class="faq-item" name="faq"><summary>必须用遥控器吗？</summary><p>不需要。键盘方向键、回车和 Esc 就能完成所有操作，鼠标也可以。想窝在沙发上遥控，搭配 RemoteFlow 等遥控工具就能直接连上实体遥控器。</p></details>
+          <details class="faq-item" name="faq"><summary>换电脑时片单和进度怎么迁移？</summary><p>在「设置 → 本地数据」中一键导出备份，就能把片单、分类和观看进度完整带到新电脑；账号密码和登录状态不会被导出。</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DOWNLOAD ================= -->
+    <section class="download-section wrap" id="download" aria-labelledby="download-title">
+      <div class="download" data-reveal>
+        <div class="download-glow" aria-hidden="true"></div>
+        <img class="download-icon" src="assets/app-icon.png" alt="" width="112" height="112" loading="lazy">
+        <h2 id="download-title">今晚，换个方式追剧。</h2>
+        <p>Apple 芯片 Mac · macOS 14+ · 当前版本 0.5.0</p>
+        <div class="download-actions">
+          <a class="btn btn-gold btn-large" href="#build" data-open-build>从源码构建</a>
+          <a class="btn btn-glass btn-large" href="downloads/KivoPluginSDK-1.1.1.zip" download>下载插件 SDK</a>
+        </div>
+        <small class="download-status">内测阶段 · 独立安装包即将上线</small>
+        <div class="build-box" id="build" hidden>
+          <pre><code><span class="c"># 依赖：Xcode 与 Homebrew</span>
+brew install mpv
+bash scripts/build-app.sh
+open build/Kivo.app</code></pre>
+          <button type="button" class="copy-btn" data-copy="brew install mpv&#10;bash scripts/build-app.sh&#10;open build/Kivo.app">复制</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <a class="brand" href="#top"><img src="assets/kivo-logo.svg" alt="Kivo" width="62" height="22" loading="lazy"></a>
+    <p>把客厅，装进你的 Mac。</p>
+    <nav class="footer-links" aria-label="页脚导航">
+      <a href="plugins.html">插件</a><a href="sdk.html">插件 SDK</a><a href="#top">回到顶部 ↑</a>
+    </nav>
+  </footer>
+</body>
+</html>
